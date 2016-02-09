@@ -14,4 +14,18 @@ describe('Context', function () {
         output.callback.should.a('function');
     });  
   });
+  
+  describe('calling "asserts"', function () {
+    it('should create a new assertion object', function () {
+      var input_context = new Context ('context_name', function cb () {});
+      
+      var output = input_context.asserts('my_assertion', true);
+      
+      output.name.should.be.a('string');
+      output.name.should.equal('context_name');
+      output.expectedValue.should.a('boolean');
+      output.expectedValue.should.equal(true);
+      output.contextName.should.equal('my_assertion');
+    });
+  });
 });
