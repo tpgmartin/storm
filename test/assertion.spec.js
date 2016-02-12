@@ -21,46 +21,46 @@ describe('Assertion', function () {
     });  
   });
   describe('checking an assertion', function () {
-    it('should return "true" for a correst "isTrue" assertion', function () {
-        var input_context = new Context ('context_name', function cb () {});
+    it('should return "true" for a correct "isTrue" assertion', function () {
+        var input_assertion = new Assertion ('my_assertion', true);
         
-        var output = input_context.asserts('my_assertion', true).isTrue();
+        var output = input_assertion.isTrue();
         
         output.should.be.a('boolean');
         output.should.equal(true);
     });
     
-    it('should return "false" for an incorrest "isTrue" assertion', function () {
-        var input_context = new Context ('context_name', function cb () {});
-        
-        var output = input_context.asserts('my_assertion', false).isTrue();
+    it('should return "false" for an incorrect "isTrue" assertion', function () {
+        var input_assertion = new Assertion ('my_assertion', false);
+      
+        var output = input_assertion.isTrue();
         
         output.should.be.a('boolean');
         output.should.equal(false);
     });
     
-    it('should return "true" for a correst "isFalse" assertion', function () {
-        var input_context = new Context ('context_name', function cb () {});
+    it('should return "true" for a correct "isFalse" assertion', function () {
+        var input_assertion = new Assertion ('my_assertion', false);
         
-        var output = input_context.asserts('my_assertion', false).isFalse();
+        var output = input_assertion.isFalse();
         
         output.should.be.a('boolean');
         output.should.equal(true);
     });
     
-    it('should return "true" for a correst "isNull" assertion', function () {
-        var input_context = new Context ('context_name', function cb () {});
+    it('should return "true" for a correct "isNull" assertion', function () {
+        var input_assertion = new Assertion ('my_assertion', null);
         
-        var output = input_context.asserts('my_assertion', null).isNull();
+        var output = input_assertion.isNull();
         
         output.should.be.a('boolean');
         output.should.equal(true);
     });
     
     it('should fail silently if not called with assetion method', function () {
-        var input_context = new Context ('context_name', function cb () {});
+        var input_assertion = new Assertion ('my_assertion', true);
         
-        var output = input_context.asserts('my_assertion', true);
+        var output = input_assertion;
         
         output.should.be.an('object');
     });
